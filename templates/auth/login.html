@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Login</title>
+</head>
+<body>
+  <div class="containerLoginRegister">
+    <h1>Log in</h1>
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      {% for error in login_form.non_field_errors %}
+      <h3 style="text-align: center; color: red;">{{ error }}</h3>
+      {% endfor %}
+      <label for="id_username">Login</label>
+      <input type="text" id="id_username" name="username" required>
+
+      <label for="id_password">Password</label>
+      <input type="password" id="id_password" name="password" required>
+
+      <input type="submit" value="SUBMIT">
+    </form>
+  </div>
+</body>
+</html>

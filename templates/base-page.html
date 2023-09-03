@@ -31,16 +31,24 @@
             <nav>
                 <ul>
                     <li><a href="#">Telegram bot</a></li>
-                    <li><a href="#">Email</a></li>
                 </ul>
             </nav>
 
             <p class="titlesheader">- Account -</p>
 
             <nav>
-                <ul>
-                    <li><a href="#">Log in / Registration</a></li>
-                </ul>
+                <select class="selectHeader" onchange="location = this.value;">
+                  <option>
+                      {% if user.is_authenticated %}
+                        {{ user.username }}
+                      {% else %}
+                        Log in / Register ↓
+                      {% endif %}
+                  </option>
+                  <option value="{% url 'login' %}">Log in</option>
+                  <option value="{% url 'register' %}">Register</option>
+                  <option value="{% url 'logout' %}">Log out</option>
+                </select>
             </nav>
         </header>
     </div>
