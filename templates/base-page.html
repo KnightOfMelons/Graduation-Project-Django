@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <title>{% block title %}Shop{% endblock title %}</title>
+</head>
+<body>
+<div class="backgroundForImage" style="background-image: url('{% static 'images/mainwallpaper.jpeg' %}');">
+    <div class="headerPosition">
+        <header class="vertical-header">
+            <div class="logo">
+            <a href="/"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
+            </div>
+
+            <p class="titlesheader">- Browse -</p>
+
+            <nav>
+            <ul>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+            </ul>
+            </nav>
+
+            <p class="titlesheader">- Contacts -</p>
+
+            <nav>
+                <ul>
+                    <li><a href="#">Telegram bot</a></li>
+                    <li><a href="#">Email</a></li>
+                </ul>
+            </nav>
+
+            <p class="titlesheader">- Account -</p>
+
+            <nav>
+                <ul>
+                    <li><a href="#">Log in / Registration</a></li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+{% block container %}
+
+{% endblock container %}
+</div>
+</body>
+</html>

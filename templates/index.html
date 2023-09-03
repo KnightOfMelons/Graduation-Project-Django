@@ -1,0 +1,17 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+    Home
+{% endblock title %}
+
+{% block container %}
+    <h1 class="mainH1class">top Books</h1>
+    <h2 class="mainH2class"><em>our brands:</em></h2>
+
+    <p style="text-align: center;">
+    <a href="https://eksmo.ru/" target="_blank"><img class="imgMainLine" src="{% static 'images/logo1.png' %}" alt="Brand1"></a>
+    <a href="https://rosman.ru/" target="_blank"><img class="imgMainLine" src="{% static 'images/logo2.jpg' %}" alt="Brand2"></a>
+    <a href="https://ast.ru/" target="_blank"><img class="imgMainLine" src="{% static 'images/logo3.jpg' %}" alt="Brand3s"></a>
+    </p>
+{% endblock container%}
