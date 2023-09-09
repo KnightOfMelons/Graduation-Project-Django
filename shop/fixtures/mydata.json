@@ -1,0 +1,215 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {"password": "pbkdf2_sha256$600000$lBrmisjxWu0fFK7dabRMHw$yyekAINI6WM8z++4V4LO0QUJmY0qWgpKDk7CL0vFrVs=",
+      "last_login": "2023-09-07T06:36:59.535Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@admin.ru",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-09-03T09:54:31.145Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "shop.product",
+    "pk": 1,
+    "fields": {
+      "name": "Product_1",
+      "code": "38140012",
+      "price": "643.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.product",
+    "pk": 2,
+    "fields": {
+      "name": "Product_2",
+      "code": "38140013",
+      "price": "904.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.product",
+    "pk": 3,
+    "fields": {
+      "name": "Product_3",
+      "code": "38140010",
+      "price": "2045.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.product",
+    "pk": 4,
+    "fields": {
+      "name": "Product_4",
+      "code": "38140008",
+      "price": "3235.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.product",
+    "pk": 5,
+    "fields": {
+      "name": "Product_5",
+      "code": "38140011",
+      "price": "1889.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.product",
+    "pk": 6,
+    "fields": {
+      "name": "Product_6",
+      "code": "38140009",
+      "price": "2648.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.product",
+    "pk": 7,
+    "fields": {
+      "name": "Product_7",
+      "code": "38140004",
+      "price": "570.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.product",
+    "pk": 8,
+    "fields": {
+      "name": "Product_8",
+      "code": "38140007",
+      "price": "1713.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.product",
+    "pk": 9,
+    "fields": {
+      "name": "Product_9",
+      "code": "38140003",
+      "price": "476.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.product",
+    "pk": 10,
+    "fields": {
+      "name": "Product_10",
+      "code": "38140006",
+      "price": "965.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.product",
+    "pk": 11,
+    "fields": {
+      "name": "Product_11",
+      "code": "38140005",
+      "price": "814.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.product",
+    "pk": 12,
+    "fields": {
+      "name": "Product_12",
+      "code": "38140002",
+      "price": "1537.00",
+      "unit": "за шт",
+      "image_url": null,
+      "note": null}
+  },
+  {
+    "model": "shop.payment",
+    "pk": 5,
+    "fields": {
+      "user":  1,
+      "amount":  "10000.00",
+      "time":  "2022-04-14T19:55:28.285Z",
+      "comment":  ""
+    }
+  },
+  {
+    "model": "shop.payment",
+    "pk": 6,
+    "fields": {
+      "user":  1,
+      "amount":  "2000.00",
+      "time":  "2022-04-14T19:55:35.644Z",
+      "comment":  ""
+    }
+  },
+  {
+    "model": "shop.payment",
+    "pk": 12,
+    "fields": {
+      "user":  1,
+      "amount":  "1000.00",
+      "time":  "2022-04-14T20:03:07.506Z",
+      "comment":  ""
+    }
+  },
+  {
+    "model": "shop.order",
+    "pk": 11,
+    "fields": {
+      "user":  1,
+      "status": "2_waiting_for_payment",
+      "amount":  "13556.00",
+      "creation_time": "2022-04-14T20:02:26.403Z",
+      "payment": null,
+      "comment":  ""
+    }
+  },
+  {
+    "model": "shop.orderitem",
+    "pk": 16,
+    "fields": {
+      "order": 11,
+      "product": 1,
+      "quantity": 2,
+      "price": "643.00",
+      "discount": "0.00"
+    }
+  },
+  {
+    "model": "shop.orderitem",
+    "pk": 17,
+    "fields": {
+      "order": 11,
+      "product": 3,
+      "quantity": 6,
+      "price": "2045.00",
+      "discount": "0.00"
+    }
+  }
+]
