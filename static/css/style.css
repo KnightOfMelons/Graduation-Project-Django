@@ -1,10 +1,3 @@
-body {
-    background-image: url('fores-mountains.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-  }
-
 .vertical-header {
     position: fixed;
     left: 0;
@@ -54,14 +47,22 @@ body {
   
   .product {
     width: calc(25% - 10px);
-    margin-right: 20px;
-    margin-bottom: 40px;
+    margin: 20px;
+    background-color: rgba(229, 226, 226, 0.851);
+    text-align: center;
+    border-radius: 20px;
+    opacity: 0.95;
+    box-shadow: 0 0 5px;
   }
   
   .product img {
     max-width: 100%;
   }
-  
+
+  .price {
+    margin-top: 0px;
+  }
+
   .product .price {
     font-weight: bold;
     margin-bottom: 5px;
@@ -71,6 +72,10 @@ body {
     width: 50px;
   }
   
+  .buy-button {
+    margin-bottom: 10px;
+  }
+
   .product .buy-button {
     background-color: #555;
     color: #fff;
@@ -86,6 +91,9 @@ body {
   .imgproduct {
     max-width: 300px;
     max-height: 300px;
+    margin: 12px;
+    border-radius: 5px;
+    box-shadow: 0 0 2px;
   }
 
   .headerPosition {
@@ -118,7 +126,7 @@ body {
 
   .categoriesUpper li {
     position: relative;
-    margin: 0;
+    
     padding: 15px; 
   }
 
@@ -127,6 +135,19 @@ body {
     color: #000;
     font-size: larger;
     font-weight: bold;
+  }
+
+  .categoryLI {
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0 0 2px;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+
+  .categoryLI:hover{
+    background-color: grey;
+    opacity: 0.95;
   }
 
   .container {
@@ -141,6 +162,13 @@ body {
     justify-content: center;
     height: 70%;
     overflow-y: scroll;
+  }
+
+  #blogContainer {
+    margin-top: 10px;
+    width: 70%;
+    position: fixed;
+    height: 90%;
   }
 
   h1 {
@@ -212,7 +240,7 @@ body {
   }
 
   .aboutBackground {
-    background-color: #cccbcbd4;
+    background-color: #cccbcbe1;
     margin-left: 210px;
     margin-right: 10px;
     height: auto;
@@ -276,6 +304,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
+    overflow: scroll;
     }
 
   .mainH1class {
@@ -324,4 +353,38 @@ body {
   font-weight: bold;
   color: #333;
   cursor: pointer;
+}
+
+.cartbackground, .detailsBackground {
+  max-width: 1300.400px;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.837);
+  margin-left: 210px;
+  margin-right: 10px;
+  padding: 20px;
+  opacity: 0.999;
+  border-radius: 10px;
+}
+
+.hr-shadow {
+	margin: 20px 0;
+	padding: 0;
+	height: 10px;
+	border: none;
+	border-top: 1px solid #333;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+.cartParts {
+  text-align: center;
+}
+
+.cartPartsInside {
+  display: inline-block;
+  width: 16%;
+  text-align: center;
+}
+
+.descriptionDetails{
+    font-size: 1.2rem;
 }

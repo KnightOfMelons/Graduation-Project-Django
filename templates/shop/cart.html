@@ -1,0 +1,72 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+    Cart
+{% endblock title %}
+
+{% block container %}
+
+    <div class="cartbackground">
+        <p><h1 style="text-align: center;">Cart</h1>    
+
+        <hr class="hr-shadow">
+
+        <div class="cartParts">
+            <div class="cartPartsInside">
+                <h3>№</h3>
+            </div>
+            <div class="cartPartsInside">
+                <h3>Name</h3>
+            </div>
+            <div class="cartPartsInside">
+                <h3>Quantity</h3>
+            </div>
+            <div class="cartPartsInside">
+                <h3>Price</h3>
+            </div>
+            <div class="cartPartsInside">
+                <h3>Amount</h3>
+            </div>
+            <div class="cartPartsInside">
+                <h3></h3>
+            </div>
+        </div>
+
+        <hr class="hr-shadow">
+
+        {% for item in items %}
+            <div class="row">
+                <div class="cartPartsInside">
+                    {{ forloop.counter }}
+                </div>
+                <div class="cartPartsInside">
+                    {{ item.product }}
+                </div>
+                <div class="cartPartsInside">
+                    {{ item.quantity }}
+                </div>
+                <div class="cartPartsInside">
+                    {{ item.price }} ₽
+                </div>
+                <div class="cartPartsInside">
+                    {{ item.amount }}
+                </div>
+                <div class="cartPartsInside">
+                    <form method="post" action="{% url 'cart_delete_item' item.pk %}">
+                        {% csrf_token %}
+                        <button type="submit" style="width: 100px;">delete</button>
+                    </form>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+
+        <hr class="hr-shadow">
+
+        <h3 style="text-align: center;">Total: {{ cart.amount }} ₽</h3>
+
+        <a href="{% url 'make_order' %}"><button style="margin: 0 auto; display: block; width: 100px; height: 30px;">
+            Buy</button></a>
+    </div>
+{% endblock container%}

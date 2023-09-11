@@ -1,0 +1,28 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+    Details
+{% endblock title %}
+
+{% block container %}
+    <div class="detailsBackground">
+        <h1 style="text-align: center;">{{ product.name }}</h1>
+        <img src="{{ product.image_url }}" style="width: 200px; height: 300px;
+         border-radius: 5px; margin: 10px auto 20px; display: block;">
+
+        <hr class="hr-shadow">
+
+        <h3 style="text-align: center;">PRICE: {{ product.price }} ₽</h3>
+        <p style="text-align: center;"><a href="javascript:history.back()">Back</a></p>
+
+        <hr class="hr-shadow">
+
+        <h3 style="text-align: center;">DESCRIPTION: </h3>
+
+        <p class="descriptionDetails">
+            {{ product.note }}
+        </p>
+
+    </div>
+{% endblock container %}

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
     <title>{% block title %}Shop{% endblock title %}</title>
 </head>
 <body>
@@ -19,9 +20,9 @@
 
             <nav>
             <ul>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="{% url 'shop' %}">Shop</a></li>
+                <li><a href="{% url 'cart_view' %}">Cart</a></li>
+                <li><a href="{% url 'blog' %}">Blog</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
             </ul>
             </nav>
@@ -32,6 +33,15 @@
                 <ul>
                     <li><a href="#">Telegram bot</a></li>
                 </ul>
+                {% if user.is_staff %}
+                <ul>
+                    <li><a href="/admin">Admin tools</a></li>
+                </ul>
+                {% else %}
+                <ul>
+                    <li><a href="#">Email</a></li>
+                </ul>
+                {% endif %}
             </nav>
 
             <p class="titlesheader">- Account -</p>
