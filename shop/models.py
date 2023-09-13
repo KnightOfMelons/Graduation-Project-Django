@@ -7,12 +7,19 @@ from django.dispatch import receiver
 
 
 class Product(models.Model):
+    CATEGORY_CHOICES = (
+        ('F', 'Fantasy'),
+        ('D', 'Detective'),
+        ('H', 'Horror'),
+        ('A', 'Adults'),
+    )
     name = models.CharField(max_length=255, verbose_name='product_name')
     code = models.CharField(max_length=255, verbose_name='product_code')  # Уникальный код продукта
     price = models.DecimalField(max_digits=20, decimal_places=2)
     unit = models.CharField(max_length=255, blank=True, null=True)
     image_url = models.URLField(blank=True, null=True)
     note = models.TextField(blank=True, null=True)
+    category = models.CharField(max_length=1, choices=CATEGORY_CHOICES, blank=True, null=True)
 
     class Meta:
         ordering = ['pk']
@@ -21,6 +28,29 @@ class Product(models.Model):
     def __str__(self):
         return f'{self.name}'
 
+    def get_all_by_FANTASY(self):
+        fantasy_cat = Product.objects.filter(category='F')
+        return fantasy_cat
+
+    def get_all_by_DETECTIVE(self):
+        detective_cat = Product.objects.filter(category='D')
+        return detective_cat
+
+    def get_all_by_HORROR(self):
+        horror_cat = Product.objects.filter(category='H')
+        return horror_cat
+
+    def get_all_by_ADULTS(self):
+        adults_cat = Product.objects.filter(category='A')
+        return adults_cat
+
+    def get_by_increase_price(self):
+        increase = Product.objects.all().order_by('price')
+        return increase
+
+    def get_by_decline_price(self):
+        decline = Product.objects.all().order_by('-price')
+        return decline
 
 class Payment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # on_delete - если удаляем пользователя, то и удаляем

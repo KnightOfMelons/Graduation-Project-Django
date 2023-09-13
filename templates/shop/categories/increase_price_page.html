@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block title %}
-    Shop
+    Increase price
 {% endblock title %}
 
 {% block container %}
-        
+
         <div class="categoriesUpper">
             <ul class="hr">
                 <li class="categoryLI"><a href="{% url 'fantasy_cat' %}">Fantasy</a></li>
@@ -20,7 +20,7 @@
         </div>
 
       <div class="products">
-          {% for product in object_list %}
+          {% for product in category %}
               {% if product.category != 'A' %}
                 <div class="product">
                     <form method="post" action="{% url 'add_item_to_cart' product.pk %}">

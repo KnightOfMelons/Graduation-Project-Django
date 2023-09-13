@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <title>Login</title>
+</head>
+<body>
+  <div class="containerLoginRegister">
+    <h1 style="color: red;">WARNING</h1>
+    <h2 style="text-align: center;">This content is intended for persons over 18 years of age.</h2>
+    <h3 style="text-align: center;">Are you already 18 years old?</h3>
+    <p style="text-align: center;">
+      <a href="{% url 'adults_cat' %}"><button type="submit">Yes</button></a>
+      <a href="{% url 'shop' %}"><button type="submit">No</button></a>
+    </p>
+  </div>
+</body>
+</html>

@@ -68,3 +68,50 @@ def make_order(request):
     cart = Order.get_cart(request.user)
     cart.make_order()
     return redirect('shop')
+
+def detective_category(request):
+    category = Product.get_all_by_DETECTIVE(request.user)
+    context = {
+        'category': category,
+    }
+    return render(request, 'shop/categories/detective_cat.html', context)
+
+def fantasy_category(request):
+    category = Product.get_all_by_FANTASY(request.user)
+    context = {
+        'category': category,
+    }
+    return render(request, 'shop/categories/fantasy_cat.html', context)
+
+def horror_category(request):
+    category = Product.get_all_by_HORROR(request.user)
+    context = {
+        'category': category,
+    }
+    return render(request, 'shop/categories/horror_cat.html', context)
+
+def adults_category(request):
+    category = Product.get_all_by_ADULTS(request.user)
+    context = {
+        'category': category,
+    }
+    return render(request, 'shop/categories/adults_cat.html', context)
+
+# СОРТИРОВКА ПО ЦЕНЕ
+def order_list_increase(request):
+    category = Product.get_by_increase_price(request.user)
+    context = {
+        'category': category
+    }
+    return render(request, 'shop/categories/increase_price_page.html', context)
+
+
+def order_list_decline(request):
+    category = Product.get_by_decline_price(request.user)
+    context = {
+        'category': category
+    }
+    return render(request, 'shop/categories/decline_price.html', context)
+
+def warning_page(request):
+    return render(request, 'warning_page.html')
