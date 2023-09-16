@@ -1,0 +1,12 @@
+{% load static %}
+<html>
+    <body>
+        <h1>Contact</h1>
+        <form method="post" action=".">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button>Submit</button>
+        </form>
+    <p><a href="javascript:history.back()">Back</a></p>
+    </body>
+</html>

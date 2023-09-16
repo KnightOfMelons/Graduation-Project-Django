@@ -1,8 +1,7 @@
 from django.urls import path
-from shop.views import ProductsListView, ProductsDetailView, add_item_to_cart, cart_view, CartDeleteItem, make_order,\
+from shop.views import ProductsListView, ProductsDetailView, add_item_to_cart, cart_view, CartDeleteItem, make_order, \
     detective_category, fantasy_category, horror_category, adults_category, order_list_increase, order_list_decline, \
     warning_page
-
 
 urlpatterns = [
     path('', ProductsListView.as_view(), name='shop'),
