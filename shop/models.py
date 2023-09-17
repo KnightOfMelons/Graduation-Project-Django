@@ -52,6 +52,7 @@ class Product(models.Model):
         decline = Product.objects.all().order_by('-price')
         return decline
 
+
 class Payment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)  # on_delete - если удаляем пользователя, то и удаляем
     # все платежи
@@ -164,6 +165,7 @@ def auto_payment_unpaid_orders(user: User):
         Payment.objects.create(user=user,
                                amount=-order.amount)
 
+
 # Эти позволяют отражать любые изменению по заказу, которые влияют на сумму (пересчитывают OrderItems)
 @receiver(post_save, sender=OrderItem)
 def recalculate_order_amount_after_save(sender, instance, **kwargs):
@@ -183,3 +185,15 @@ def recalculate_order_amount_after_delete(sender, instance, **kwargs):
 def auto_payment(sender, instance, **kwargs):
     user = instance.user
     auto_payment_unpaid_orders(user)
+
+
+class Blog(models.Model):
+    title = models.CharField(max_length=255)
+    text = models.CharField(max_length=1860)
+    date = models.DateTimeField()
+
+    class Meta:
+        ordering = ['pk']
+
+    def __str__(self):
+        return f'{self.title}'

@@ -8,35 +8,12 @@
 {% block container %}
 
         <div class="container" id="blogContainer">
-            <div class="article">
-              <h2>Заголовок статьи</h2>
-              <p>Текст статьи...</p>
-              <div class="date">01.01.2021</div>
-            </div>
-            <div class="article">
-              <h2>Заголовок статьи</h2>
-              <p>Текст статьи...</p>
-              <div class="date">01.01.2021</div>
-            </div>
-            <div class="article">
-              <h2>Заголовок статьи</h2>
-              <p>Текст статьи...</p>
-              <div class="date">01.01.2021</div>
-            </div>
-            <div class="article">
-              <h2>Заголовок статьи</h2>
-              <p>Текст статьи...</p>
-              <div class="date">01.01.2021</div>
-            </div>
-            <div class="article">
-              <h2>Заголовок статьи</h2>
-              <p>Текст статьи...</p>
-              <div class="date">01.01.2021</div>
-            </div>
-            <div class="article">
-              <h2>Заголовок статьи</h2>
-              <p>Текст статьи...</p>
-              <div class="date">01.01.2021</div>
-            </div>
+            {% for blog in blogs %}
+                <div class="article">
+                  <h2>{{ blog.title }}</h2>
+                  <p>{{ blog.text|safe|truncatechars:150 }}</p>
+                  <div class="date">{{ blog.date }}</div>
+                </div>
+            {% endfor %}
           </div>
 {% endblock container %}

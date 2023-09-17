@@ -3,9 +3,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, DeleteView
+import textwrap
 
 from shop.forms import AddQuantityForm
-from shop.models import Product, Order, OrderItem
+from shop.models import Product, Order, OrderItem, Blog
 
 
 # Это для страницы Shop, чтобы вывести все книги
@@ -115,3 +116,10 @@ def order_list_decline(request):
 
 def warning_page(request):
     return render(request, 'warning_page.html')
+
+def blogs_list(request):
+    blogs = Blog.objects.all()
+    context = {
+        'blogs': blogs
+    }
+    return render(request, 'blog.html', context)
