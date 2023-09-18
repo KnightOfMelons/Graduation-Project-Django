@@ -1,12 +1,22 @@
 {% load static %}
-<html>
-    <body>
+
+
+<body>
+    <div style="text-align: center;
+    background-color: lightgrey;
+    margin-left: 500px;
+    margin-right: 500px;
+    border-radius: 10px;">
+
         <h1>Contact</h1>
+
         <form method="post" action=".">
             {% csrf_token %}
             {{ form.as_p }}
             <button>Submit</button>
         </form>
-    <p><a href="javascript:history.back()">Back</a></p>
-    </body>
-</html>
+
+        <p><a href="{% url 'shop' %}">Back</a></p>
+        <br>
+    </div>
+</body>

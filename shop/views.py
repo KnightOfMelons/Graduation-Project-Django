@@ -122,4 +122,8 @@ def blogs_list(request):
     context = {
         'blogs': blogs
     }
-    return render(request, 'blog.html', context)
+    return render(request, 'blog/blog.html', context)
+
+class BlogsDetailView(DetailView):
+    model = Blog
+    template_name = 'blog/blog_detail.html'

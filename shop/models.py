@@ -189,7 +189,7 @@ def auto_payment(sender, instance, **kwargs):
 
 class Blog(models.Model):
     title = models.CharField(max_length=255)
-    text = models.CharField(max_length=1860)
+    text = models.TextField(max_length=1860)
     date = models.DateTimeField()
 
     class Meta:

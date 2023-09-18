@@ -10,7 +10,8 @@
         <div class="container" id="blogContainer">
             {% for blog in blogs %}
                 <div class="article">
-                  <h2>{{ blog.title }}</h2>
+                  <h2><a href="{% url 'blog-detail' blog.pk %}"
+                         style="text-decoration: none; color: black;">{{ blog.title }}</a></h2>
                   <p>{{ blog.text|safe|truncatechars:150 }}</p>
                   <div class="date">{{ blog.date }}</div>
                 </div>
