@@ -7,33 +7,69 @@
 
 {% block container %}
     <div class="aboutBackground">
-        <h2 style="text-align: center;">About us</h2>
+        <h2 style="text-align: center; font-style: oblique; font-weight: bold;">~ About us ~</h2>
         
-    <p><span style="font-weight: bold;">"top-Books"</span> is Russia's largest chain of bookstores and an online store.</p>
+        <p><span style="font-weight: bold;">"top-Books"</span> is Russia's largest chain of bookstores and an online store.</p>
 
-    <p>We don't just sell books, we share our customers' love of reading. We know the feeling when good novels end too quickly,
-    there is not enough time on the road to finish the chapter, and the heroine cannot find her love. 
-    We know how quickly time flies in the company of a novelty from your favorite author and how much you want to stretch this pleasure.
-    </p>
+        <p>We don't just sell books, we share our customers' love of reading. We know the feeling when good novels end too quickly,
+        there is not enough time on the road to finish the chapter, and the heroine cannot find her love.
+        We know how quickly time flies in the company of a novelty from your favorite author and how much you want to stretch this pleasure.
+        </p>
 
-    <p>The stores of the network offer books of various categories:</p>
-    <ul>
-        <li>Fantasy</li>
-        <li>Detective</li>
-        <li>Horror</li>
-        <li>Adults (18+)</li>
-    </ul>
+        <p>The stores of the network offer books of various categories:</p>
+        <ul>
+            <li>Fantasy</li>
+            <li>Detective</li>
+            <li>Horror</li>
+            <li>Adults (18+)</li>
+        </ul>
 
-        <h3 style="text-align: center;">Cultural and educational activities</h3>
-    <p><span style="font-weight: bold;">"top-Books"</span> stores repeatedly became participants in charity events, 
-        both in Moscow and in other cities of Russia: “Books open hearts”, 
-        “These books are for children, free of charge from friends”, “Give a book to children”, “Book Bridge".
-    </p>
+            <h3 style="text-align: center;">Cultural and educational activities</h3>
+        <p><span style="font-weight: bold;">"top-Books"</span> stores repeatedly became participants in charity events,
+            both in Moscow and in other cities of Russia: “Books open hearts”,
+            “These books are for children, free of charge from friends”, “Give a book to children”, “Book Bridge".
+        </p>
 
-    <p style="text-align: center;">
-        <img src="{% static 'images/about-1.png' %}" class="imgAbout">
-        <img src="{% static 'images/about-2.png' %}" class="imgAbout">
-        <img src="{% static 'images/about-3.png' %}" class="imgAbout">
-    </p>
+        <div class="slider">
+          <img src="{% static 'images/about-1.png' %}" alt="Изображение 1" class="slide">
+          <img src="{% static 'images/about-2.png' %}" alt="Изображение 2" class="slide">
+          <img src="{% static 'images/about-3.png' %}" alt="Изображение 3" class="slide">
+        </div>
+
+        <h3 style="text-align: center; font-style: oblique; font-weight: bold;">~ Contact Us ~</h3>
+
+        <div style="float: left;">
+            <br>
+            © 2023, top-books
+            <br>
+            <a style="text-decoration: none;" href="mailto: public-chosen@7nk3toj3.mailosaur.net">
+                <img src="{% static 'images/ICONemail.png' %}" width="20" height="20"/> Send Email
+            </a>
+            <br>
+            <a style="text-decoration: none;" href="tel:88005553535">
+                <img src="{% static 'images/ICONphone.png' %}" width="20" height="20"/> 8 (800) 555-35-35
+            </a>
+            <br>
+            <a target="_blank" style="text-decoration: none;" href="https://maps.app.goo.gl/V3wqX7C3CTQRmXQe6">
+                <img src="{% static 'images/ICONmaps.png' %}" width="20" height="20"/> Moscow, Presnenskaya embankment, 10, Block C 4
+            </a>
+        </div>
+
+        <div style="float: right;">
+            <h3 style="margin-top: 0px;">Online book store “top-books”</h3>
+
+            <p>“top-books” is a online bookstore successfully <br>
+                operating in Moscow and other regions of Russia.</p>
+
+            <p style="margin-bottom: 0px;">We accept payment:
+                <img src="{% static 'images/ICONmir.png' %}" width="60" height="20" style="margin-left: 15px;">
+                <img src="{% static 'images/ICONmastercard.png' %}" width="40" height="20">
+                <img src="{% static 'images/ICONvisa.png' %}" width="60" height="20">
+            </p>
+        </div>
     </div>
+
+<script src="{% static 'js/about.js'%}"></script>
+
 {% endblock container %}
+
