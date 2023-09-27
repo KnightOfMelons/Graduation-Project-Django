@@ -129,6 +129,11 @@ class Order(models.Model):
                                       ).aggregate(Sum('amount'))['amount__sum']
         return amount or Decimal(0)
 
+    @staticmethod
+    def get_history(user: User):
+        history = Order.objects.filter(user=user)
+        return history
+
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE)

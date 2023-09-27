@@ -127,3 +127,11 @@ def blogs_list(request):
 class BlogsDetailView(DetailView):
     model = Blog
     template_name = 'blog/blog_detail.html'
+
+@login_required(login_url=reverse_lazy('login'))
+def history_page(request):
+    history = Order.get_history(request.user)
+    context = {
+        'history': history,
+    }
+    return render(request, 'shop/history.html', context)
