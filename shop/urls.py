@@ -1,7 +1,8 @@
 from django.urls import path
 from shop.views import ProductsListView, ProductsDetailView, add_item_to_cart, cart_view, CartDeleteItem, make_order, \
     detective_category, fantasy_category, horror_category, adults_category, order_list_increase, order_list_decline, \
-    warning_page, blogs_list, BlogsDetailView, history_page
+    warning_page, blogs_list, BlogsDetailView, history_page, poetry_category, drama_category, history_category, \
+    comedy_category
 
 urlpatterns = [
     path('', ProductsListView.as_view(), name='shop'),
@@ -10,12 +11,19 @@ urlpatterns = [
     path('add-item-to-cart/<int:pk>', add_item_to_cart, name='add_item_to_cart'),
     path('delete_item/<int:pk>', CartDeleteItem.as_view(), name='cart_delete_item'),
     path('make-order/', make_order, name='make_order'),
+
     path('detective_category/', detective_category, name='detective_cat'),
     path('fantasy_category/', fantasy_category, name='fantasy_cat'),
     path('horror_category/', horror_category, name='horror_cat'),
     path('adults_category/', adults_category, name='adults_cat'),
+    path('poetry_category/', poetry_category, name='poetry_cat'),
+    path('drama_category/', drama_category, name='drama_cat'),
+    path('history_category/', history_category, name='history_cat'),
+    path('comedy_category/', comedy_category, name='comedy_cat'),
+
     path('increase_price/', order_list_increase, name='inc_price'),
     path('decline_price/', order_list_decline, name='dec_price'),
+
     path('warning/', warning_page, name='warning_page'),
     path('blog/', blogs_list, name='blog'),
     path('blog-detail/<int:pk>/', BlogsDetailView.as_view(), name='blog-detail'),

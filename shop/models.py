@@ -12,6 +12,10 @@ class Product(models.Model):
         ('D', 'Detective'),
         ('H', 'Horror'),
         ('A', 'Adults'),
+        ('P', 'Poetry'),
+        ('DR', 'Drama'),
+        ('HIS', 'History'),
+        ('C', 'Comedy'),
     )
     name = models.CharField(max_length=255, verbose_name='product_name')
     code = models.CharField(max_length=255, verbose_name='product_code')  # Уникальный код продукта
@@ -19,7 +23,7 @@ class Product(models.Model):
     unit = models.CharField(max_length=255, blank=True, null=True)
     image_url = models.URLField(blank=True, null=True)
     note = models.TextField(blank=True, null=True)
-    category = models.CharField(max_length=1, choices=CATEGORY_CHOICES, blank=True, null=True)
+    category = models.CharField(max_length=3, choices=CATEGORY_CHOICES, blank=True, null=True)
 
     class Meta:
         ordering = ['pk']
@@ -43,6 +47,22 @@ class Product(models.Model):
     def get_all_by_ADULTS(self):
         adults_cat = Product.objects.filter(category='A')
         return adults_cat
+
+    def get_all_by_POETRY(self):
+        poetry_cat = Product.objects.filter(category='P')
+        return poetry_cat
+
+    def get_all_by_DRAMA(self):
+        drama_cat = Product.objects.filter(category='DR')
+        return drama_cat
+
+    def get_all_by_HISTORY(self):
+        history_cat = Product.objects.filter(category='HIS')
+        return history_cat
+
+    def get_all_by_COMEDY(self):
+        comedy_cat = Product.objects.filter(category='C')
+        return comedy_cat
 
     def get_by_increase_price(self):
         increase = Product.objects.all().order_by('price')

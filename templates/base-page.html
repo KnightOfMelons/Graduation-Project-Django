@@ -55,9 +55,12 @@
                         Log in / Register ↓
                       {% endif %}
                   </option>
-                  <option value="{% url 'login' %}">Log in</option>
-                  <option value="{% url 'register' %}">Register</option>
-                  <option value="{% url 'logout' %}">Log out</option>
+                    {% if user.is_authenticated %}
+                        <option value="{% url 'logout' %}">Log out</option>
+                    {% else %}
+                      <option value="{% url 'login' %}">Log in</option>
+                      <option value="{% url 'register' %}">Register</option>
+                    {% endif %}
                 </select>
             </nav>
         </header>

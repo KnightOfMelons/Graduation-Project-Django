@@ -2,11 +2,11 @@
 {% load static %}
 
 {% block title %}
-    Shop
+    History
 {% endblock title %}
 
 {% block container %}
-        
+
         <div class="categoriesUpper">
             <ul class="hr">
                 <li class="categoryLI"><a href="{% url 'fantasy_cat' %}">Fantasy</a></li>
@@ -27,20 +27,18 @@
         </div>
 
       <div class="products">
-          {% for product in object_list %}
-              {% if product.category != 'A' %}
-                <div class="product">
-                    <form method="post" action="{% url 'add_item_to_cart' product.pk %}">
-                      <a href="{% url 'shop_detail' product.pk %}"><img src="{{ product.image_url }}" alt="Товар 1" class="imgproduct"></a>
-                      <p class="price">{{ product.name }}</p>
-                        {% csrf_token %}
-                      <p class="price">{{ product.price }} ₽</p>
-                        <label for="id_quantity">Quantity:</label>
-                      <input name="quantity" type="number" value="1" min="1" id="id_quantity" required>
-                      <button type="submit">buy</button>
-                    </form>
-                </div>
-              {% endif %}
+          {% for product in category %}
+            <div class="product">
+                <form method="post" action="{% url 'add_item_to_cart' product.pk %}">
+                  <a href="{% url 'shop_detail' product.pk %}"><img src="{{ product.image_url }}" alt="Товар 1" class="imgproduct"></a>
+                  <p class="price">{{ product.name }}</p>
+                    {% csrf_token %}
+                  <p class="price">{{ product.price }} ₽</p>
+                    <label for="id_quantity">Quantity:</label>
+                  <input name="quantity" type="number" value="1" min="1" id="id_quantity" required>
+                  <button type="submit">buy</button>
+                </form>
+            </div>
           {% endfor %}
 
       </div>

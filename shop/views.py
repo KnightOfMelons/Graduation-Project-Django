@@ -98,6 +98,34 @@ def adults_category(request):
     }
     return render(request, 'shop/categories/adults_cat.html', context)
 
+def poetry_category(request):
+    category = Product.get_all_by_POETRY(request.user)
+    context = {
+        'category': category,
+    }
+    return render(request, 'shop/categories/poetry_cat.html', context)
+
+def drama_category(request):
+    category = Product.get_all_by_DRAMA(request.user)
+    context = {
+        'category': category,
+    }
+    return render(request, 'shop/categories/drama_cat.html', context)
+
+def history_category(request):
+    category = Product.get_all_by_HISTORY(request.user)
+    context = {
+        'category': category,
+    }
+    return render(request, 'shop/categories/history_cat.html', context)
+
+def comedy_category(request):
+    category = Product.get_all_by_COMEDY(request.user)
+    context = {
+        'category': category,
+    }
+    return render(request, 'shop/categories/comedy_cat.html', context)
+
 # СОРТИРОВКА ПО ЦЕНЕ
 def order_list_increase(request):
     category = Product.get_by_increase_price(request.user)
