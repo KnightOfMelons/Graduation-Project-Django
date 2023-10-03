@@ -12,6 +12,7 @@ def login_user(request):
         if login_form.is_valid():
             username = login_form.cleaned_data['username']
             password = login_form.cleaned_data['password']
+
             user = authenticate(username=username, password=password)
             if user:
                 login(request, user)
@@ -27,6 +28,7 @@ def login_user(request):
             }
 
     return render(request, 'auth/login.html', context)
+
 
 class RegisterView(TemplateView):
     template_name = 'auth/registration.html'
@@ -47,6 +49,7 @@ class RegisterView(TemplateView):
 
         context = {'user_form': user_form}
         return render(request, 'auth/registration.html', context)
+
 
 def logout_user(request):
     logout(request)

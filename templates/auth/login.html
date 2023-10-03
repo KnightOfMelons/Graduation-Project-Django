@@ -1,14 +1,13 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <title>Login</title>
 </head>
-<body>
+
+<body style="background: lightgrey;">
   <div class="containerLoginRegister">
     <h1>Log in</h1>
     <form method="post" action="{% url 'login' %}">
@@ -22,9 +21,14 @@
       <label for="id_password">Password</label>
       <input type="password" id="id_password" name="password" required>
 
+      <label>Captcha</label>
+      {{ login_form.captcha }}
+
       <input type="submit" value="SUBMIT">
     </form>
     <h3 style="text-align: center;"><a href="javascript:history.back()">Back</a></h3>
   </div>
+
+
 </body>
 </html>

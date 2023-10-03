@@ -11,4 +11,5 @@ urlpatterns = [
     path('auth/', include('authentication.urls')),
     path('shop/', include('shop.urls')),
     path('contact/', contact_page, name='contact'),
+    path('captcha/', include('captcha.urls')),
 ]

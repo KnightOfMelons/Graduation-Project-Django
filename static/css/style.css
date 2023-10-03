@@ -405,3 +405,24 @@
 .slide:first-child {
     opacity: 1;
 }
+
+.hide {
+    display: none;
+}
+
+#actionBtn:hover {
+    background: yellow;
+    transition: 0.5s;
+}
+
+.aLIcat {
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+    font-weight: bold;
+}
+
+img.captcha {
+    width: 200px;
+    height: 100px;
+}

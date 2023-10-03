@@ -1,10 +1,12 @@
 from django import forms
 from django.contrib.auth.models import User
+from captcha.fields import CaptchaField
 
 
 class LoginForm(forms.Form):
     username = forms.CharField()
     password = forms.CharField(widget=forms.PasswordInput())
+    captcha = CaptchaField()
 
     def clean(self):
         cleaned_data = super().clean()
@@ -19,12 +21,14 @@ class LoginForm(forms.Form):
         if not self.user.check_password(password):
             raise forms.ValidationError(f'Passowrd for user {username} is not correct.')
 
+
 class RegisterForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['email'].required = True
         for visible in self.visible_fields():
             visible.field.widget.attrs['class'] = 'form-input'
+
     class Meta:
         model = User
         fields = ('username', 'email', 'password')

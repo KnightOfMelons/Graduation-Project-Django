@@ -7,24 +7,29 @@
 
 {% block container %}
         
-        <div class="categoriesUpper">
-            <ul class="hr">
-                <li class="categoryLI"><a href="{% url 'fantasy_cat' %}">Fantasy</a></li>
-                <li class="categoryLI"><a href="{% url 'detective_cat' %}">Detective</a></li>
-                <li class="categoryLI"><a href="{% url 'horror_cat' %}">Horror</a></li>
-                <li class="categoryLI"><a href="{% url 'warning_page' %}">Adults</a></li>
-
-                <li class="categoryLI"><a href="">All</a></li>
+        <div class="categoriesUpper" id="firstLINE">
+            <ul class="hr" >
+                <a href="{% url 'fantasy_cat' %}" class="aLIcat"> <li class="categoryLI">Fantasy</li> </a>
+                <a href="{% url 'detective_cat' %}" class="aLIcat"> <li class="categoryLI">Detective</li> </a>
+                <a href="{% url 'horror_cat' %}" class="aLIcat"> <li class="categoryLI">Horror</li> </a>
+                <a href="{% url 'warning_page' %}" class="aLIcat"> <li class="categoryLI">Adults</li> </a>
+                <a href="" class="aLIcat"> <li class="categoryLI">All</li> </a>
+                <button class="categoryLI" id="actionBtn">More</button>
             </ul>
-            <ul class="hr">
-                <li class="categoryLI"><a href="{% url 'poetry_cat' %}">Poetry</a></li>
-                <li class="categoryLI"><a href="{% url 'drama_cat' %}">Drama</a></li>
-                <li class="categoryLI"><a href="{% url 'history_cat' %}">History</a></li>
-                <li class="categoryLI"><a href="{% url 'comedy_cat' %}">Comedy</a></li>
-                <li class="categoryLI"><a href="{% url 'dec_price' %}">₽↓</a></li>
-                <li class="categoryLI"><a href="{% url 'inc_price' %}">₽↑</a></li>
+
+        </div>
+
+        <div class="categoriesUpper hide" id="secondLINE">
+            <ul class="hr" >
+                <a href="{% url 'poetry_cat' %}" class="aLIcat"><li class="categoryLI">Poetry</li></a>
+                <a href="{% url 'drama_cat' %}" class="aLIcat"><li class="categoryLI">Drama</li></a>
+                <a href="{% url 'history_cat' %}" class="aLIcat"><li class="categoryLI">History</li></a>
+                <a href="{% url 'comedy_cat' %}" class="aLIcat"><li class="categoryLI">Comedy</li></a>
+                <a href="{% url 'dec_price' %}" class="aLIcat"><li class="categoryLI">₽↓</li></a>
+                <a href="{% url 'inc_price' %}" class="aLIcat"><li class="categoryLI">₽↑</li></a>
             </ul>
         </div>
+        <script src="{% static 'js/hideBUTTONS.js'%}"></script>
 
       <div class="products">
           {% for product in object_list %}
