@@ -13,7 +13,7 @@
                   <h2><a href="{% url 'blog-detail' blog.pk %}"
                          style="text-decoration: none; color: black;">{{ blog.title }}</a></h2>
                   <p>{{ blog.text|safe|truncatechars:150 }}</p>
-                  <div class="date">{{ blog.date }}</div>
+                  <div class="date">{{ blog.date|date:"d E Y H:i" }}</div>
                 </div>
             {% endfor %}
           </div>

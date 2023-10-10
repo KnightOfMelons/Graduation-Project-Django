@@ -47,6 +47,16 @@
                 </div>
               {% endif %}
           {% endfor %}
-
       </div>
+        {% if is_paginated %}
+          {% if page_obj.has_previous %}
+          <a href="{% url 'shop' %}"><button style="margin-left: 50%; width: 100px; height: 40px;" type="button">Начало</button></a>
+          <a href="?page={{ page_obj.previous_page_number }}"><button style="width: 100px; height: 40px;" type="button">Предыдущая</button></a>
+          {% endif %}
+
+          {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}"><button style="margin-left: 50%; width: 100px; height: 40px;" type="button">Следующая</button></a>
+          <a href="?page={{ page_obj.paginator.num_pages }}"><button style="width: 100px; height: 40px;" type="button">Последняя</button></a>
+          {% endif %}
+        {% endif %}
 {% endblock container %}

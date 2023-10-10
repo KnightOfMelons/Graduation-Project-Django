@@ -14,6 +14,8 @@ class ProductsListView(ListView):
     model = Product
     template_name = 'shop/shop.html'
 
+    paginate_by = 9
+
 
 # Это для страницы с Деталями товара
 class ProductsDetailView(DetailView):

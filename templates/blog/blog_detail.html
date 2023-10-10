@@ -9,6 +9,6 @@
 <div class="cartbackground">
 <h2 style="text-align: center; font-size: 35px;">{{ blog.title }}</h2>
     <p style="font-size: 25px;">{{ blog.text|linebreaksbr }}</p>
-    <h3>{{ blog.date }}</h3>
+    <h3>{{ blog.date|date:"d E Y H:i" }}</h3>
 </div>
 {% endblock container %}
