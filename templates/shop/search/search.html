@@ -1,0 +1,30 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+    Search results
+{% endblock title %}
+
+{% block container %}
+
+      <div class="products">
+          {% for product in products %}
+                <div class="product">
+                    <form method="post" action="{% url 'add_item_to_cart' product.pk %}">
+                      <a href="{% url 'shop_detail' product.pk %}"><img src="{{ product.image_url }}" alt="Товар 1" class="imgproduct"></a>
+                      <p class="price">{{ product.name }}</p>
+                        {% csrf_token %}
+                      <p class="price">{{ product.price }} ₽</p>
+                        <label for="id_quantity">Quantity:</label>
+                      <input name="quantity" type="number" value="1" min="1" id="id_quantity" required>
+                      <button type="submit">buy</button>
+                    </form>
+                </div>
+          {% empty %}
+          <p class="nothingClass">
+              Nothing here. <a href="javascript:history.back()">Back?</a>
+          </p>
+          {% endfor %}
+      </div>
+
+{% endblock container %}

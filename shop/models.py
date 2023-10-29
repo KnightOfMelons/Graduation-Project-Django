@@ -218,7 +218,7 @@ class Blog(models.Model):
     date = models.DateTimeField()
 
     class Meta:
-        ordering = ['pk']
+        ordering = ['-date']
 
     def __str__(self):
         return f'{self.title}'

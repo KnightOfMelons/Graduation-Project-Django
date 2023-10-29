@@ -426,3 +426,23 @@ img.captcha {
     width: 200px;
     height: 100px;
 }
+
+.nothingClass {
+    margin-right: 20%;
+    margin-top: 20%;
+    background-color: white;
+    border-radius: 2px;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 25px;
+}
+
+.searchPageFindButton {
+    margin-left: 20%;
+    margin-right: 10%;
+    margin-top: 20%;
+    background-color: white;
+    border-radius: 5px;
+}

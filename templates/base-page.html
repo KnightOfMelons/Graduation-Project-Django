@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
     <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.png' %}">
+
     <title>{% block title %}Shop{% endblock title %}</title>
 </head>
 <body>
@@ -16,7 +17,11 @@
             <a href="/"><img src="{% static 'images/logo.png' %}" alt="logo"></a>
             </div>
 
-            <p class="titlesheader">- Browse -</p>
+            <p class="titlesheader">- Browse
+                <a href="{% url 'search_page' %}" style="text-decoration: none;">
+                <img style="width: 15px; height: 15px;" src="{% static 'images/magnifier.png'%}">
+            </a> -
+            </p>
 
             <nav>
             <ul>

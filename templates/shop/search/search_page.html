@@ -1,0 +1,16 @@
+{% extends 'base-page.html' %}
+{% load static %}
+
+{% block title %}
+    Search
+{% endblock title %}
+
+{% block container %}
+
+    <div class="searchPageFindButton">
+        <form method="GET" action="{% url 'search_result' %}">
+          <input type="text" name="query" placeholder="Search...">
+          <button type="submit">Find</button>
+        </form>
+    </div>
+{% endblock container %}

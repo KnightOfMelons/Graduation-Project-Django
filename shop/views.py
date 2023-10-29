@@ -3,7 +3,6 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, DeleteView
-import textwrap
 
 from shop.forms import AddQuantityForm
 from shop.models import Product, Order, OrderItem, Blog
@@ -72,12 +71,14 @@ def make_order(request):
     cart.make_order()
     return redirect('shop')
 
+
 def detective_category(request):
     category = Product.get_all_by_DETECTIVE(request.user)
     context = {
         'category': category,
     }
     return render(request, 'shop/categories/detective_cat.html', context)
+
 
 def fantasy_category(request):
     category = Product.get_all_by_FANTASY(request.user)
@@ -86,12 +87,14 @@ def fantasy_category(request):
     }
     return render(request, 'shop/categories/fantasy_cat.html', context)
 
+
 def horror_category(request):
     category = Product.get_all_by_HORROR(request.user)
     context = {
         'category': category,
     }
     return render(request, 'shop/categories/horror_cat.html', context)
+
 
 def adults_category(request):
     category = Product.get_all_by_ADULTS(request.user)
@@ -100,12 +103,14 @@ def adults_category(request):
     }
     return render(request, 'shop/categories/adults_cat.html', context)
 
+
 def poetry_category(request):
     category = Product.get_all_by_POETRY(request.user)
     context = {
         'category': category,
     }
     return render(request, 'shop/categories/poetry_cat.html', context)
+
 
 def drama_category(request):
     category = Product.get_all_by_DRAMA(request.user)
@@ -114,6 +119,7 @@ def drama_category(request):
     }
     return render(request, 'shop/categories/drama_cat.html', context)
 
+
 def history_category(request):
     category = Product.get_all_by_HISTORY(request.user)
     context = {
@@ -121,12 +127,14 @@ def history_category(request):
     }
     return render(request, 'shop/categories/history_cat.html', context)
 
+
 def comedy_category(request):
     category = Product.get_all_by_COMEDY(request.user)
     context = {
         'category': category,
     }
     return render(request, 'shop/categories/comedy_cat.html', context)
+
 
 # СОРТИРОВКА ПО ЦЕНЕ
 def order_list_increase(request):
@@ -144,8 +152,10 @@ def order_list_decline(request):
     }
     return render(request, 'shop/categories/decline_price.html', context)
 
+
 def warning_page(request):
     return render(request, 'warning_page.html')
+
 
 def blogs_list(request):
     blogs = Blog.objects.all()
@@ -154,9 +164,11 @@ def blogs_list(request):
     }
     return render(request, 'blog/blog.html', context)
 
+
 class BlogsDetailView(DetailView):
     model = Blog
     template_name = 'blog/blog_detail.html'
+
 
 @login_required(login_url=reverse_lazy('login'))
 def history_page(request):
@@ -165,3 +177,12 @@ def history_page(request):
         'history': history,
     }
     return render(request, 'shop/history.html', context)
+
+def search(request):
+    return render(request, 'shop/search/search_page.html')
+
+def search_result(request):
+    query = request.GET.get('query')
+    products = Product.objects.filter(name__icontains=query)
+    context = {'products': products}
+    return render(request, 'shop/search/search.html', context)

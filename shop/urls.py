@@ -2,7 +2,7 @@ from django.urls import path
 from shop.views import ProductsListView, ProductsDetailView, add_item_to_cart, cart_view, CartDeleteItem, make_order, \
     detective_category, fantasy_category, horror_category, adults_category, order_list_increase, order_list_decline, \
     warning_page, blogs_list, BlogsDetailView, history_page, poetry_category, drama_category, history_category, \
-    comedy_category
+    comedy_category, search_result, search
 
 urlpatterns = [
     path('', ProductsListView.as_view(), name='shop'),
@@ -28,4 +28,7 @@ urlpatterns = [
     path('blog/', blogs_list, name='blog'),
     path('blog-detail/<int:pk>/', BlogsDetailView.as_view(), name='blog-detail'),
     path('history/', history_page, name='history_orders'),
+
+    path('search_page/', search, name='search_page'),
+    path('search_result/', search_result, name='search_result'),
 ]
