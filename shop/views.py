@@ -3,9 +3,14 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, DetailView, DeleteView
+from django.http import HttpResponse
 
 from shop.forms import AddQuantityForm
 from shop.models import Product, Order, OrderItem, Blog
+
+global flag
+flag = None
+count = 0
 
 
 # Это для страницы Shop, чтобы вывести все книги
@@ -97,11 +102,14 @@ def horror_category(request):
 
 
 def adults_category(request):
-    category = Product.get_all_by_ADULTS(request.user)
-    context = {
-        'category': category,
-    }
-    return render(request, 'shop/categories/adults_cat.html', context)
+    if flag:
+        category = Product.get_all_by_ADULTS(request.user)
+        context = {
+            'category': category,
+        }
+        return render(request, 'shop/categories/adults_cat.html', context)
+    else:
+        return HttpResponse('Access is denied')
 
 
 def poetry_category(request):
@@ -154,7 +162,14 @@ def order_list_decline(request):
 
 
 def warning_page(request):
-    return render(request, 'warning_page.html')
+    global count
+    if count == 0:
+        global flag
+        flag = True
+        count += 1
+        return render(request, 'warning_page.html')
+    else:
+        return adults_category(request)
 
 
 def blogs_list(request):
@@ -178,8 +193,10 @@ def history_page(request):
     }
     return render(request, 'shop/history.html', context)
 
+
 def search(request):
     return render(request, 'shop/search/search_page.html')
+
 
 def search_result(request):
     query = request.GET.get('query')
