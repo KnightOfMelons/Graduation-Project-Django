@@ -210,13 +210,15 @@ def add_to_favorite(request, product_id):
     product = Product.objects.get(id=product_id)
     favorite, created = Favorite.objects.get_or_create(user=request.user, product=product)
 
-    if not created:
-        # Если товар уже добавлен в избранное, то перенаправляем пользователя на страницу с избранными товарами
-        return redirect('favorite_page')
-
-    return redirect('shop_detail', pk=product.pk)
+    return redirect('favorite_page')
 
 
 def favorite(request):
     favorites = Favorite.objects.filter(user=request.user)
     return render(request, 'shop/favorites.html', {'favorites': favorites})
+
+
+def remove_from_favorite(request, pk):
+    favorite = Favorite.objects.get(user=request.user, product=pk)
+    favorite.delete()
+    return redirect('favorite_page')

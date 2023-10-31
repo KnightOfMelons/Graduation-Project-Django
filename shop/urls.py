@@ -2,7 +2,7 @@ from django.urls import path
 from shop.views import ProductsListView, ProductsDetailView, add_item_to_cart, cart_view, CartDeleteItem, make_order, \
     detective_category, fantasy_category, horror_category, adults_category, order_list_increase, order_list_decline, \
     warning_page, blogs_list, BlogsDetailView, history_page, poetry_category, drama_category, history_category, \
-    comedy_category, search_result, search, add_to_favorite, favorite
+    comedy_category, search_result, search, add_to_favorite, favorite, remove_from_favorite
 
 urlpatterns = [
     path('', ProductsListView.as_view(), name='shop'),
@@ -34,4 +34,5 @@ urlpatterns = [
 
     path('add_to_favorite/<int:product_id>', add_to_favorite, name='add_to_favorite'),
     path('favorite_page/', favorite, name='favorite_page'),
+    path('favorite/<int:pk>/remove/', remove_from_favorite, name='remove_from_favorite')
 ]
