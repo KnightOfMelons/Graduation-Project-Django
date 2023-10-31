@@ -19,8 +19,15 @@
 
             <p class="titlesheader">- Browse
                 <a href="{% url 'search_page' %}" style="text-decoration: none;">
-                <img style="width: 15px; height: 15px;" src="{% static 'images/magnifier.png'%}">
-            </a> -
+                    <img style="width: 15px; height: 15px;" src="{% static 'images/magnifier.png'%}">
+                </a>
+
+                {% if user.is_authenticated %}
+                    <a href="{% url 'favorite_page' %}" style="text-decoration: none;">
+                        <img style="width: 15px; height: 15px;" src="{% static 'images/favorites.png'%}">
+                    </a>
+                {% endif %}
+                -
             </p>
 
             <nav>

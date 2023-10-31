@@ -11,6 +11,10 @@
         <img src="{{ product.image_url }}" style="width: 200px; height: 300px;
          border-radius: 5px; margin: 10px auto 20px; display: block;">
 
+        {% if user.is_authenticated %}
+          <a href="{% url 'add_to_favorite' product.id %}" class="btn btn-primary">Add to favorites</a>
+        {% endif %}
+
         <hr class="hr-shadow">
 
         <h3 style="text-align: center;">PRICE: {{ product.price }} ₽</h3>

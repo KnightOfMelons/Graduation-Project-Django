@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView, DeleteView
 from django.http import HttpResponse
 
 from shop.forms import AddQuantityForm
-from shop.models import Product, Order, OrderItem, Blog
+from shop.models import Product, Order, OrderItem, Blog, Favorite
 
 global flag
 flag = None
@@ -203,3 +203,20 @@ def search_result(request):
     products = Product.objects.filter(name__icontains=query)
     context = {'products': products}
     return render(request, 'shop/search/search.html', context)
+
+
+@login_required(login_url=reverse_lazy('login'))
+def add_to_favorite(request, product_id):
+    product = Product.objects.get(id=product_id)
+    favorite, created = Favorite.objects.get_or_create(user=request.user, product=product)
+
+    if not created:
+        # Если товар уже добавлен в избранное, то перенаправляем пользователя на страницу с избранными товарами
+        return redirect('favorite_page')
+
+    return redirect('shop_detail', pk=product.pk)
+
+
+def favorite(request):
+    favorites = Favorite.objects.filter(user=request.user)
+    return render(request, 'shop/favorites.html', {'favorites': favorites})
