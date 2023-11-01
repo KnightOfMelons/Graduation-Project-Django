@@ -6,6 +6,9 @@
 {% endblock title %}
 
 {% block container %}
+    <p class="favoritesCLASS">
+        Your favorites books.
+    </p>
 
       <div class="products">
               {% for favorite in favorites %}
@@ -25,6 +28,10 @@
                             <button style="background-color: yellow;" type="submit">Remove from favorites</button>
                         </form>
                     </div>
+              {% empty %}
+                  <p class="nothingClass" style="margin-top: 15%;">
+                      Nothing here. <a href="{% url 'shop' %}">Back?</a>
+                  </p>
               {% endfor %}
       </div>
 

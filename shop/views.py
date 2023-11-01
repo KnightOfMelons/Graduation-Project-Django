@@ -213,6 +213,7 @@ def add_to_favorite(request, product_id):
     return redirect('favorite_page')
 
 
+@login_required(login_url=reverse_lazy('login'))
 def favorite(request):
     favorites = Favorite.objects.filter(user=request.user)
     return render(request, 'shop/favorites.html', {'favorites': favorites})
