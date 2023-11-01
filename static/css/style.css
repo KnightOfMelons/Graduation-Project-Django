@@ -473,3 +473,17 @@ img.captcha {
     padding-bottom: 20px;
     font-size: 25px;
 }
+
+.button-container {
+    display: inline-block;
+    width: 25%;
+    margin-right: 10px;
+    margin-left: 50%;
+    margin-bottom: 1%;
+}
+
+.paginatedbutton {
+    width: 20%;
+    background-color: white;
+    border-radius: 5px;
+}

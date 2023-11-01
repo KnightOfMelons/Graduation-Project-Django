@@ -20,6 +20,9 @@ class ProductsListView(ListView):
 
     paginate_by = 9
 
+    def get_queryset(self):
+        return Product.objects.exclude(category='A')
+
 
 # Это для страницы с Деталями товара
 class ProductsDetailView(DetailView):
