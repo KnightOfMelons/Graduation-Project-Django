@@ -90,6 +90,7 @@ def detective_category(request):
 
 def fantasy_category(request):
     category = Product.get_all_by_FANTASY(request.user)
+
     context = {
         'category': category,
     }

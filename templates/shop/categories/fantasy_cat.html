@@ -45,6 +45,19 @@
                 </form>
             </div>
           {% endfor %}
-
       </div>
+
+        {% if is_paginated %}
+            <div class="button-container">
+              {% if page_obj.has_previous %}
+                  <a href="{% url 'shop' %}"><button class="paginatedbutton" type="button">Begin</button></a>
+                  <a href="?page={{ page_obj.previous_page_number }}"><button class="paginatedbutton" type="button">Previous</button></a>
+              {% endif %}
+
+              {% if page_obj.has_next %}
+                  <a href="?page={{ page_obj.next_page_number }}"><button class="paginatedbutton" type="button">Next</button></a>
+                  <a href="?page={{ page_obj.paginator.num_pages }}"><button class="paginatedbutton" type="button">Last</button></a>
+              {% endif %}
+            </div>
+        {% endif %}
 {% endblock container %}
