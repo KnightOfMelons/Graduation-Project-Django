@@ -17,8 +17,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 EMAIL_HOST = 'smtp.mailosaur.net'
-EMAIL_HOST_USER = '7nk3toj3@mailosaur.net'
-EMAIL_HOST_PASSWORD = 'adUJcXgXPCXMjSO5kyi5tmclc7ETZVKZ'
+EMAIL_HOST_USER = 'dug-lucky@mfni56ds.mailosaur.net'
+EMAIL_HOST_PASSWORD = 'ZPSnoaOID2q0oCIBgBXcaatB2INZ2aWV'
 EMAIL_PORT = '587'
 
 # Application definition
