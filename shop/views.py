@@ -30,6 +30,12 @@ class ProductsDetailView(DetailView):
     template_name = 'shop/shop-details.html'
 
 
+# login_required - Это декоратор в Django, который требует аутентификации
+# пользователя для доступа к определенной view.
+# Если пользователь не аутентифицирован, он будет перенаправлен
+# на страницу входа, указанную в параметре login_url.
+# reverse_lazy используется для получения URL страницы входа путем обращения к имени URL-шаблона,
+# определенному в urls.py.
 @login_required(login_url=reverse_lazy('login'))
 def add_item_to_cart(request, pk):
     if request.method == 'POST':
